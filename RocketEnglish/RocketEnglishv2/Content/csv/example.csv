@@ -1,0 +1,98 @@
+Categoria;Vocabulary;;;;;;;;
+Categoria;Grammar;;;;;;;;
+Categoria;Comprehension;;;;;;;;
+;;;;;;;;;
+;;;;;;;;;
+Desbloqueavel;~/Content/avatar/images_high/sunglasses.png;sunglasses;Head;;;;;;
+Dialogo;Deal with it!;sunglasses;;;;;;;
+Dialogo;My middle name is *cool*!;sunglasses;;;;;;;
+Dialogo;These glasses are awesome. Can't see a thing though.;sunglasses;;;;;;;
+Desbloqueavel;~/Content/avatar/images_high/moustache.png;moustache;Head;;;;;;
+Dialogo;I moustache you a question! Ahahaha;moustache;;;;;;;
+Dialogo;Hmm… so this is what it's like to have follicles.;moustache;;;;;;;
+Dialogo;I'm such a manly bot!;moustache;;;;;;;
+Desbloqueavel;~/Content/avatar/images_high/suit.png;suit;Body;;;;;;
+Dialogo;Suit up!;suit;;;;;;;
+Dialogo;My name is ty. Bot ty.;suit;;;;;;;
+Dialogo;Don't touch the suit! Tsk…;suit;;;;;;;
+;;;;;;;;;
+;;;;;;;;;
+;;;;;;;;;
+;;;;;;;;;
+;;;;;;;;;
+;;;;;;;;;
+;;;;;;;;;
+;;;;;;;;;
+NivelCategoria;1;Vocabulary;sunglasses;;;;;;
+Licao;1;Weather;We learn how to describe different weather states!;Vocabulary;;;;;
+Licao;1;Locations;We discover different types of locations!;Vocabulary;;;;;
+NivelCategoria;2;Vocabulary;sunglasses;;;;;;
+Licao;2;The Body I;We discover new body parts and what they are called!;Vocabulary;;;;;
+Licao;2;The Body II;We continue our journey through the human body!;Vocabulary;;;;;
+NivelCategoria;3;Vocabulary;sunglasses;;;;;;
+Licao;3;Signs I;We discover new sign names!;Vocabulary;;;;;
+Licao;3;Signs II;We continue to discover new sign names!;Vocabulary;;;;;
+NivelCategoria;4;Vocabulary;sunglasses;;;;;;
+Licao;4;Animals I;We learn about the animals on this planet!;Vocabulary;;;;;
+Licao;4;Animals II;We continueto learn about the animals on this planet!;Vocabulary;;;;;
+NivelCategoria;5;Vocabulary;sunglasses;;;;;;
+Licao;5;Fruits I;We learn about nature!;Vocabulary;;;;;
+Licao;5;Fruits II;Learn how to describe the weather!;Vocabulary;;;;;
+;;;;;;;;;
+;;;;;;;;;
+NivelCategoria;1;Grammar;suit;;;;;;
+Licao;1;Singular and Plural Nouns I;Lorem ipsum dolor sit amet, insolens postulant mea te, hinc salutatus vis et.;Grammar;;;;;
+Licao;1;Singular and Plural Nouns II;Lorem ipsum dolor sit amet, insolens postulant mea te, hinc salutatus vis et.;Grammar;;;;;
+NivelCategoria;2;Grammar;suit;;;;;;
+Licao;2;Count and Non-Count Nouns;Lorem ipsum dolor sit amet, insolens postulant mea te, hinc salutatus vis et.;Grammar;;;;;
+Licao;2;Possessive Nouns;Lorem ipsum dolor sit amet, insolens postulant mea te, hinc salutatus vis et.;Grammar;;;;;
+NivelCategoria;3;Grammar;suit;;;;;;
+Licao;3;Pronouns I;Lorem ipsum dolor sit amet, insolens postulant mea te, hinc salutatus vis et.;Grammar;;;;;
+Licao;3;Pronouns II;Lorem ipsum dolor sit amet, insolens postulant mea te, hinc salutatus vis et.;Grammar;;;;;
+NivelCategoria;4;Grammar;suit;;;;;;
+Licao;4;"""Be"" Verbs";Lorem ipsum dolor sit amet, insolens postulant mea te, hinc salutatus vis et.;Grammar;;;;;
+Licao;4;Adjectives;Lorem ipsum dolor sit amet, insolens postulant mea te, hinc salutatus vis et.;Grammar;;;;;
+NivelCategoria;5;Grammar;suit;;;;;;
+Licao;5;Action Verbs I;Lorem ipsum dolor sit amet, insolens postulant mea te, hinc salutatus vis et.;Grammar;;;;;
+Licao;5;Action Verbs II;Lorem ipsum dolor sit amet, insolens postulant mea te, hinc salutatus vis et.;Grammar;;;;;
+;;;;;;;;;
+;;;;;;;;;
+NivelCategoria;1;Comprehension;moustache;;;;;;
+Licao;1;C1;Lorem ipsum dolor sit amet, insolens postulant mea te, hinc salutatus vis et.;Comprehension;;;;;
+Licao;1;C2;Lorem ipsum dolor sit amet, insolens postulant mea te, hinc salutatus vis et.;Comprehension;;;;;
+NivelCategoria;2;Comprehension;moustache;;;;;;
+Licao;2;C3;Lorem ipsum dolor sit amet, insolens postulant mea te, hinc salutatus vis et.;Comprehension;;;;;
+Licao;2;C4;Lorem ipsum dolor sit amet, insolens postulant mea te, hinc salutatus vis et.;Comprehension;;;;;
+NivelCategoria;3;Comprehension;moustache;;;;;;
+Licao;3;C5;Lorem ipsum dolor sit amet, insolens postulant mea te, hinc salutatus vis et.;Comprehension;;;;;
+Licao;3;C6;Lorem ipsum dolor sit amet, insolens postulant mea te, hinc salutatus vis et.;Comprehension;;;;;
+NivelCategoria;4;Comprehension;moustache;;;;;;
+Licao;4;C7;Lorem ipsum dolor sit amet, insolens postulant mea te, hinc salutatus vis et.;Comprehension;;;;;
+Licao;4;C8;Lorem ipsum dolor sit amet, insolens postulant mea te, hinc salutatus vis et.;Comprehension;;;;;
+NivelCategoria;5;Comprehension;moustache;;;;;;
+Licao;5;C8;Lorem ipsum dolor sit amet, insolens postulant mea te, hinc salutatus vis et.;Comprehension;;;;;
+Licao;5;C10;Lorem ipsum dolor sit amet, insolens postulant mea te, hinc salutatus vis et.;Comprehension;;;;;
+;;;;;;;;;
+;;;;;;;;;
+PerguntaEscolhaMultipla;Sunny;Hailing;Raining;Windy;How is the day?;Weather;Well, that is the sun, so…;~/Content/qImages/sunny.png;none
+PerguntaEscolhaMultipla;It's raining;The sky is clear;It's cloudy;It's snowing;How is the weather?;Weather;It's not banana;~/Content/qImages/rain.png;none
+PerguntaEscolhaMultipla;windy;rainy;sunny;dry;What a ___ day!;Weather;It's not banana day;~/Content/qImages/wind.png;none
+PerguntaEscolhaMultipla;It's thundering;It's raining;The clouds have cleared;It's snowing;What is happening?;Weather;Not banana;~/Content/qImages/thunder.png;none
+PerguntaEscolhaMultipla;Snow;Supper;The sun;Sugar;What is that?;Weather;You can build a snowman with it!;~/Content/qImages/snow.png;none
+PerguntaEscolhaMultipla;Snowflakes;Snowcakes;Snowlakes;Snowstakes;What is snow made of?;Weather;It's not banana;~/Content/qImages/snow.png;none
+PerguntaEscolhaMultipla;Hailing;Raining;Snowing;Nothing;What is happening?;Weather;All hail my fantastic tips!;~/Content/qImages/hail.png;none
+PerguntaEscolhaMultipla;HailStones;HailBones;HailFlakes;HailCones;What is hail made of?;Weather;It's not HailFlakes.;~/Content/qImages/hail.png;none
+PerguntaPalavra;When there is snow, the day tends to be very ___ .;cold;Weather;"Starts with the letter ""c""";~/Content/qImages/snow.png;none;;;
+PerguntaPalavra;The land is dry because it hasn't been ___ .;raining;Weather;"Starts with the letter ""r""";~/Content/qImages/dryland.png;none;;;
+;;;;;;;;;
+;;;;;;;;;
+PerguntaEscolhaMultipla;It's a restaurant;It's a cinema;It's the beach;It's school;Can you name this place?;Locations;You can eat there.;~/Content/qImages/restaurant.png;none
+PerguntaEscolhaMultipla;It's the beach;It's the desert;It's home;It's school;What is this place?;Locations;It's not banana;~/Content/qImages/beach.png;none
+PerguntaEscolhaMultipla;caffe;restaurant;shopping Mall;school;This place can be called a coffe house or a ___ .;Locations;Really? You need help?;~/Content/qImages/cafe.png;none
+PerguntaEscolhaMultipla;desert;ocean;mountains;café;The ___ is a very dry place.;Locations;It's not mountains;~/Content/qImages/desert.png;none
+PerguntaEscolhaMultipla;The mountains;The ocean;The desert;The beach;What place is this?;Locations;Think Everest.;~/Content/qImages/mountains.png;none
+PerguntaEscolhaMultipla;Playgrounds;Schools;Cinemas;Deserts;Many people love ___ . Even adults.;Locations;It's not a banana;~/Content/qImages/playground.png;none
+PerguntaEscolhaMultipla;city;desert;caffe;mountain;The ___ is usually very polluted.;Locations;It's not a banana;~/Content/qImages/city.png;none
+PerguntaEscolhaMultipla;It's the jungle;It's the beach;It's the desert;It's a school;What is this place?;Locations;It's not a banana;~/Content/qImages/jungle.png;none
+PerguntaPalavra;This is frank, a friend of mine . He loves the ___ .;beach;Locations;"Starts with the letter ""b""";none;~/Content/qImages/beachbot.swf;;;
+PerguntaPalavra;This place is called a ___ .;zoo;Locations;"Starts with letter ""z""";~/Content/qImages/zoo.png;none;;;

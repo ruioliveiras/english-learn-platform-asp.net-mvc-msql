@@ -1,0 +1,143 @@
+﻿@using Microsoft.Web.Helpers;
+@using RocketEnglishv2.Models;
+@model List<Question>
+@{
+    Question question = null;
+    if (ViewBag.NumQuestion < Model.Count && ViewBag.NumQuestion >= 0)
+    {
+        question = Model[ViewBag.NumQuestion];
+    }
+    String joke = "put here one joke";
+}
+<div class="container">
+    <div class="row">
+        <div class="question-wrapper">
+            <div id="user-progress"></div>
+            <div class="question-media">
+                @if (question.Image != null && question.Image != "none" && question.Image != "")
+                {
+                    <img src="@Url.Content(question.Image)" />
+                }
+                
+                @if (question.Video != null && question.Video != "none" && question.Video != "")
+                {
+                    @Video.Flash(
+                    path: question.Video,
+                    width: "600",
+                    height: "350");
+                    //  autoStart: true,
+                    //    playCount: 2,
+                    //   uiMode: "full",
+                    //stretchToFit: true,
+                    // enableContextMenu: true,
+                    //mute: false,
+                    //volume: 75)
+                }
+            </div>
+            <div class="question-text-wrapper">
+                <p class="question-text">@question.Text</p>
+            </div>
+            <div class="answer-wrapper">
+                <form id="answerForm" data-tip="@question.Tip" data-request-url="@Url.Action("Answer", new { @id = ViewBag.Id, @numQuestion = ViewBag.NumQuestion, @token = ViewBag.Token })">
+                    <!-- HERE GOES Question DATA -->
+                    @if (question is MultipleChoice)
+                    {
+
+                        @Html.Partial("_QuestionMultipleChoice", (MultipleChoice)question)
+                    }
+                    @if (question is Fill)
+                    {
+                        @Html.Partial("_QuestionFill", (Fill)question)
+                    }
+                    <input type="submit" style="position: absolute; left: -9999px" />
+                </form>
+
+
+            </div>
+            @if (ViewBag.NumQuestion > 0)
+            {
+                    <a href="@Url.Action((string)ViewBag.Action, "Question",
+                    new { @id = ViewBag.Id, @numQuestion = ViewBag.NumQuestion - 1, @token = ViewBag.Token })"
+                    class="arrow arrow-right" id="button-prev"><span>&#9668;&#9668;</span></a>
+            }
+            <!-- next -->
+            @if (ViewBag.NumQuestion < Model.Count - 1)
+            {
+                <a href="@Url.Action((string)ViewBag.Action, "Question",
+                    new { @id = ViewBag.Id, @numQuestion = ViewBag.NumQuestion + 1, @token = ViewBag.Token })"
+                    class="arrow arrow-left" id="button-next"><span>&#9658;&#9658;</span></a>
+            }
+            else
+            {
+                <a href="@Url.Action((string)ViewBag.Action, "review",
+                    new { @id = ViewBag.Id, @token = ViewBag.Token })" class="arrow arrow-left" id="button-next"><span>&#9658;&#9658;</span></a>
+            }
+            <!-- usar as merdas que eu tinha criado para os botoes dava geito...  -->
+            <!-- <a href="#" class="arrow arrow-right" id="button-prev"><span>&#9668;&#9668;</span></a>-->
+            <!-- <a href="#" class="arrow arrow-left" id="button-next"><span>&#9658;&#9658;</span></a>-->
+        </div>
+    </div>
+</div>
+
+    <script language="javascript">
+        // TODO: MODIFY This request to use a restfull API
+        // ALSO MODIFY to do this on .next in Lesson.cshtml
+
+        RocketEnglish.init.push(function () {
+
+            var registerAnwser = function () {
+                var radio = $('input[name=answer]:checked', '#answerForm').val();
+                var input = $('input[name=answer]', '#answerForm').val();
+                var answerValue = (radio !== undefined) ? radio : input;
+                var url = $('#answerForm').data('request-url');
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    dataType: 'json',
+                    data: JSON.stringify({ answer: answerValue }),
+                    success: function (data) {
+                        if (data.isCorrect === true) {
+                            RocketEnglish.SimpleInteraction("You are correct!!");
+                            makeHappy();
+                        } else if (data.isCorrect === false) {
+                            makeSad();
+                            RocketEnglish.SimpleInteraction("Wrong answer...");
+                        } else if (data.error === 'anwsered') {
+                            $("input[name=answer]", '#answerForm').val(data.anwser);
+                        }
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                });
+            }
+
+            //$('#button-next').click(registerAnwser);
+            //$('#button-end').click(registerAnwser);
+            //$('#button-prev').click(registerAnwser);
+            //$('#action-button').click(registerAnwser);
+
+            $("input[name=answer]", '#answerForm').change(function () {
+                registerAnwser();
+            });
+
+            $('#answerForm').submit(function (event) {
+                registerAnwser();
+                //window.location.href = $('#button-next').attr('href');
+                event.preventDefault();
+            });
+
+            var inte = RocketEnglish.Avatar.interactionsAll;
+            @if (ViewBag.Action == "Lesson")
+            {
+                <text> 
+            inte.tip.tip = $('#answerForm').data('tip');
+            RocketEnglish.Avatar.interactionsActual.tip = inte.tip;
+
+                </text> 
+            }
+            inte.joke.joke = "@joke";
+            RocketEnglish.Avatar.interactionsActual.joke = inte.joke;
+        });
+    </script>
+

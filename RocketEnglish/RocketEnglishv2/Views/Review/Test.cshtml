@@ -1,0 +1,110 @@
+﻿@using RocketEnglishv2.Models;
+@model CategoryTest
+
+@{
+    CategoryLevel cl = ViewBag.CategoryLevel;
+    List<Question> wrongQuestions = Model.getWrongQuestions();
+    var nrWrongQuestions = wrongQuestions.Count;
+    var nrQuestions = Model.questions.Count;
+    var cena = "" + (nrQuestions - nrWrongQuestions);
+}
+
+<div class="container">
+    <div id="post-lesson-wrapper" class="row">
+        <div class="col-xs-2">
+            <div id="lesson-result"></div>
+        </div>
+        <div class="col-xs-10" id="post-lesson-summary">
+            <h1>Summary</h1>
+            <h3 class="post-lesson-correct">Correct: @cena/@nrQuestions</h3>
+            <h3 class="post-lesson-wrong">Wrong: @nrWrongQuestions/@nrQuestions</h3>
+        </div>
+        <div class="col-xs-12">
+            <h2>Wrong Answers</h2>
+            <ul class="post-lesson-questions">
+            @foreach(Question q in wrongQuestions)
+            {
+                <li>
+                    <span class="post-lesson-question">@q.Text</span>
+                    <p class="post-lesson-answer">@q.Answer</p>
+                </li>
+            }
+            </ul>
+        </div>
+        @Html.ActionLink("Exit", "Index", "Home", null,new { @class = "btn btn-primary" })
+    </div>
+</div>
+@{
+    float jsResult = ((float)nrQuestions - (float)nrWrongQuestions) / ((float)nrQuestions);
+}
+@if (nrWrongQuestions < 4)
+{
+    <audio autoplay hidden>
+        <source src="~/Content/audio/levelup1.wav" type="audio/wav">
+    </audio>
+}
+else
+{
+    <audio autoplay hidden>
+        <source src="~/Content/audio/fail1.wav" type="audio/wav">
+    </audio>
+}
+
+<script src="~/Scripts/progressbar.min.js"></script>
+<script>
+    RocketEnglish.init.push(function () {
+                          
+@if (nrWrongQuestions < 4)
+{
+    <text>
+    makeHappy();
+    greet();
+    greet();
+    </text>
+}
+else
+{
+    <text>
+    makeSad();
+    </text>  
+}
+    
+    });
+
+        $(document).ready(function(){
+            var result = parseFloat('@jsResult.ToString().Replace(",", ".")');
+            result = result.toFixed(2)
+            var endColor;
+            if(result >= 0.7)
+                endColor = '#6FD57F';
+            else if(result >= 0.5)
+                endColor = '#F9A825';
+            else
+                endColor = '#D84315';
+
+            var startColor = '#FC5B3F';
+
+
+            var circle = new ProgressBar.Circle('#lesson-result', {
+                color: '#455A64',
+                strokeWidth: 5,
+                trailWidth: 1,
+                trailColor: '#eee',
+                duration: 1500,
+                text: {
+                    value: '0'
+                },
+                step: function(state, bar) {
+                    bar.setText((bar.value() * 100).toFixed(0));
+                    bar.path.setAttribute('stroke', state.color);
+                }
+            });
+
+            circle.animate(result, {
+                from: {color: startColor},
+                to: {color: endColor}
+            }, function() {
+                $('#lesson-result p.progressbar-text').css('color', endColor);
+            });
+        });
+</script>

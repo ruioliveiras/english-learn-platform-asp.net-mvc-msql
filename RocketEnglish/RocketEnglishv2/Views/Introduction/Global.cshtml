@@ -1,0 +1,27 @@
+﻿@using RocketEnglishv2.Models;
+@model GlobalTest
+
+<div class="container">
+    <div class="row">
+        <div class="lesson-wrapper">
+            <h1 class="lesson-name">Global Test</h1>
+            @{
+                var level = @Model.Level;
+            }
+            <h4 class="lesson-theme">Level @level</h4>
+            <div class="lesson-description-container">
+              <!-- <div class="test-prize" style="background-image: url(#Model.getPrizeImagePath().Replace("~",""))"></div> --> 
+                @Html.ActionLink("Start", "Global", "Question",
+                                            new { @id = Model.Level, @token = ViewBag.token },
+                                             new { @class = "lesson-start btn btn-success" })
+            </div>
+        </div>
+    </div>
+
+    <script>
+        RocketEnglish.init.push(function () {
+            var inte = RocketEnglish.Avatar.interactionsAll;
+            RocketEnglish.Avatar.interactionsActual.joke = inte.joke;
+        });
+    </script>
+</div>

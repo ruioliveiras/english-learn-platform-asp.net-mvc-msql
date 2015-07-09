@@ -1,0 +1,11 @@
+﻿<center>
+    <h1>Admin</h1>
+    <h3>Update Database</h3>
+@using (Ajax.BeginForm("ExpandDB", "Admin", new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data" }))
+{
+        @Html.AntiForgeryToken()
+        <input type="file" name="files"><br>
+        <input type="submit" value="Upload File to Server" />
+}
+</center>
+

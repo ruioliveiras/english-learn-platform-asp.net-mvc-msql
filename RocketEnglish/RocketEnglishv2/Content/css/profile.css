@@ -1,0 +1,34 @@
+#profile-level {
+    font-size: 100px;
+    color: #F9A825;
+}
+
+.profile-stat {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#profile-stats li {
+    font-size: 16px;
+}
+
+#profile-wrapper hr {
+    width: 80%;
+    height: 1px;
+    color: #ECEFF1 !important;
+    padding-top: 20px;
+}
+
+#profile-head-wrapper img, #profile-body-wrapper img {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+
+#profile-head-wrapper label, #profile-body-wrapper label {
+    margin: 0 auto;
+}
+
+#profile-head-wrapper label:last-child, #profile-body-wrapper label:last-child {
+    display: none;
+}

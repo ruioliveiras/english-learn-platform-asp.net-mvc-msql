@@ -1,0 +1,608 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{09D86083-BA79-44BD-9D58-DFDA1F585784}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RocketEnglishv2</RootNamespace>
+    <AssemblyName>RocketEnglishv2</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.WebHelpers.3.2.3\lib\net45\Microsoft.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.1.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.1.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.1.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.3.2.3\lib\net45\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.3.2.3\lib\net45\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.1.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\TranslateController.cs" />
+    <Compile Include="Models\DBexpander.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Services\TranslatorContainer.cs" />
+    <Compile Include="Services\InstallService.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IntroductionController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\QuestionController.cs" />
+    <Compile Include="Controllers\ReviewController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="DAO\Categoria.cs" />
+    <Compile Include="DAO\Desbloqueavel.cs" />
+    <Compile Include="DAO\Dialogo.cs" />
+    <Compile Include="DAO\Licao.cs" />
+    <Compile Include="DAO\NivelCategoria.cs" />
+    <Compile Include="DAO\PerguntaEscolhaMultipla.cs" />
+    <Compile Include="DAO\PerguntaPalavra.cs" />
+    <Compile Include="DAO\RocketEnglish.cs" />
+    <Compile Include="DAO\sysdiagrams.cs" />
+    <Compile Include="DAO\TipoDesbloqueavel.cs" />
+    <Compile Include="DAO\Utilizador.cs" />
+    <Compile Include="DAO\UtilizadorCategoriaDesbloqueavel.cs" />
+    <Compile Include="DAO\UtilizadorNivelCategoria.cs" />
+    <Compile Include="DAO\UtilizadorPerguntaEscolhaMultipla.cs" />
+    <Compile Include="DAO\UtilizadorPerguntaPalavra.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CategoryLevel.cs" />
+    <Compile Include="Models\CategoryTest.cs" />
+    <Compile Include="Models\Fill.cs" />
+    <Compile Include="Models\GlobalTest.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Lesson.cs" />
+    <Compile Include="Models\LessonInfo.cs" />
+    <Compile Include="Models\MultipleChoice.cs" />
+    <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\Unlockable.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\a.mp4" />
+    <Content Include="Content\a.swf" />
+    <Content Include="Content\audio\fail1.wav" />
+    <Content Include="Content\audio\levelup1.wav" />
+    <Content Include="Content\audio\talk.wav" />
+    <Content Include="Content\avatar\botty.js" />
+    <Content Include="Content\avatar\eyebrows.png" />
+    <Content Include="Content\avatar\head.png" />
+    <Content Include="Content\avatar\images_high\eyebrows.png" />
+    <Content Include="Content\avatar\images_high\head.png" />
+    <Content Include="Content\avatar\images_high\leftEyebrow.png" />
+    <Content Include="Content\avatar\images_high\moustache.png" />
+    <Content Include="Content\avatar\images_high\mouth.png" />
+    <Content Include="Content\avatar\images_high\redMouth.png" />
+    <Content Include="Content\avatar\images_high\rightEyebrow.png" />
+    <Content Include="Content\avatar\images_high\suit.png" />
+    <Content Include="Content\avatar\images_high\sunglasses.png" />
+    <Content Include="Content\avatar\images_high\torso.png" />
+    <Content Include="Content\avatar\index.html" />
+    <Content Include="Content\avatar\leftEyebrow.png" />
+    <Content Include="Content\avatar\moustache.png" />
+    <Content Include="Content\avatar\mouth.png" />
+    <Content Include="Content\avatar\redMouth.png" />
+    <Content Include="Content\avatar\rightEyebrow.png" />
+    <Content Include="Content\avatar\suit.png" />
+    <Content Include="Content\avatar\sunglasses.png" />
+    <Content Include="Content\avatar\torso.png" />
+    <Content Include="Content\Body.png" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\challenges\category100-lvl0\pa_2625-.swf" />
+    <Content Include="Content\challenges\category100-lvl0\pa_2627-.png" />
+    <Content Include="Content\challenges\category100-lvl0\pa_2630-.swf" />
+    <Content Include="Content\challenges\category100-lvl0\pa_2632-.png" />
+    <Content Include="Content\challenges\category100-lvl0\pes_2625-.swf" />
+    <Content Include="Content\challenges\category100-lvl0\pes_2627-.png" />
+    <Content Include="Content\challenges\category100-lvl0\pes_2630-.swf" />
+    <Content Include="Content\challenges\category100-lvl0\pes_2632-.png" />
+    <Content Include="Content\challenges\category100-lvl1\pa_2655-.swf" />
+    <Content Include="Content\challenges\category100-lvl1\pa_2657-.png" />
+    <Content Include="Content\challenges\category100-lvl1\pa_2660-.swf" />
+    <Content Include="Content\challenges\category100-lvl1\pa_2662-.png" />
+    <Content Include="Content\challenges\category100-lvl1\pes_2655-.swf" />
+    <Content Include="Content\challenges\category100-lvl1\pes_2657-.png" />
+    <Content Include="Content\challenges\category100-lvl1\pes_2660-.swf" />
+    <Content Include="Content\challenges\category100-lvl1\pes_2662-.png" />
+    <Content Include="Content\challenges\category100-lvl2\pa_2685-.swf" />
+    <Content Include="Content\challenges\category100-lvl2\pa_2687-.png" />
+    <Content Include="Content\challenges\category100-lvl2\pa_2690-.swf" />
+    <Content Include="Content\challenges\category100-lvl2\pa_2692-.png" />
+    <Content Include="Content\challenges\category100-lvl2\pes_2685-.swf" />
+    <Content Include="Content\challenges\category100-lvl2\pes_2687-.png" />
+    <Content Include="Content\challenges\category100-lvl2\pes_2690-.swf" />
+    <Content Include="Content\challenges\category100-lvl2\pes_2692-.png" />
+    <Content Include="Content\challenges\category100-lvl3\pa_2715-.swf" />
+    <Content Include="Content\challenges\category100-lvl3\pa_2717-.png" />
+    <Content Include="Content\challenges\category100-lvl3\pa_2720-.swf" />
+    <Content Include="Content\challenges\category100-lvl3\pa_2722-.png" />
+    <Content Include="Content\challenges\category100-lvl3\pes_2715-.swf" />
+    <Content Include="Content\challenges\category100-lvl3\pes_2717-.png" />
+    <Content Include="Content\challenges\category100-lvl3\pes_2720-.swf" />
+    <Content Include="Content\challenges\category100-lvl3\pes_2722-.png" />
+    <Content Include="Content\challenges\category100-lvl4\pa_2745-.swf" />
+    <Content Include="Content\challenges\category100-lvl4\pa_2747-.png" />
+    <Content Include="Content\challenges\category100-lvl4\pa_2750-.swf" />
+    <Content Include="Content\challenges\category100-lvl4\pa_2752-.png" />
+    <Content Include="Content\challenges\category100-lvl4\pes_2745-.swf" />
+    <Content Include="Content\challenges\category100-lvl4\pes_2747-.png" />
+    <Content Include="Content\challenges\category100-lvl4\pes_2750-.swf" />
+    <Content Include="Content\challenges\category100-lvl4\pes_2752-.png" />
+    <Content Include="Content\challenges\category101-lvl0\pa_2635-.swf" />
+    <Content Include="Content\challenges\category101-lvl0\pa_2637-.png" />
+    <Content Include="Content\challenges\category101-lvl0\pa_2640-.swf" />
+    <Content Include="Content\challenges\category101-lvl0\pa_2642-.png" />
+    <Content Include="Content\challenges\category101-lvl0\pes_2635-.swf" />
+    <Content Include="Content\challenges\category101-lvl0\pes_2637-.png" />
+    <Content Include="Content\challenges\category101-lvl0\pes_2640-.swf" />
+    <Content Include="Content\challenges\category101-lvl0\pes_2642-.png" />
+    <Content Include="Content\challenges\category101-lvl1\pa_2665-.swf" />
+    <Content Include="Content\challenges\category101-lvl1\pa_2667-.png" />
+    <Content Include="Content\challenges\category101-lvl1\pa_2670-.swf" />
+    <Content Include="Content\challenges\category101-lvl1\pa_2672-.png" />
+    <Content Include="Content\challenges\category101-lvl1\pes_2665-.swf" />
+    <Content Include="Content\challenges\category101-lvl1\pes_2667-.png" />
+    <Content Include="Content\challenges\category101-lvl1\pes_2670-.swf" />
+    <Content Include="Content\challenges\category101-lvl1\pes_2672-.png" />
+    <Content Include="Content\challenges\category101-lvl2\pa_2695-.swf" />
+    <Content Include="Content\challenges\category101-lvl2\pa_2697-.png" />
+    <Content Include="Content\challenges\category101-lvl2\pa_2700-.swf" />
+    <Content Include="Content\challenges\category101-lvl2\pa_2702-.png" />
+    <Content Include="Content\challenges\category101-lvl2\pes_2695-.swf" />
+    <Content Include="Content\challenges\category101-lvl2\pes_2697-.png" />
+    <Content Include="Content\challenges\category101-lvl2\pes_2700-.swf" />
+    <Content Include="Content\challenges\category101-lvl2\pes_2702-.png" />
+    <Content Include="Content\challenges\category101-lvl3\pa_2725-.swf" />
+    <Content Include="Content\challenges\category101-lvl3\pa_2727-.png" />
+    <Content Include="Content\challenges\category101-lvl3\pa_2730-.swf" />
+    <Content Include="Content\challenges\category101-lvl3\pa_2732-.png" />
+    <Content Include="Content\challenges\category101-lvl3\pes_2725-.swf" />
+    <Content Include="Content\challenges\category101-lvl3\pes_2727-.png" />
+    <Content Include="Content\challenges\category101-lvl3\pes_2730-.swf" />
+    <Content Include="Content\challenges\category101-lvl3\pes_2732-.png" />
+    <Content Include="Content\challenges\category101-lvl4\pa_2755-.swf" />
+    <Content Include="Content\challenges\category101-lvl4\pa_2757-.png" />
+    <Content Include="Content\challenges\category101-lvl4\pa_2760-.swf" />
+    <Content Include="Content\challenges\category101-lvl4\pa_2762-.png" />
+    <Content Include="Content\challenges\category101-lvl4\pes_2755-.swf" />
+    <Content Include="Content\challenges\category101-lvl4\pes_2757-.png" />
+    <Content Include="Content\challenges\category101-lvl4\pes_2760-.swf" />
+    <Content Include="Content\challenges\category101-lvl4\pes_2762-.png" />
+    <Content Include="Content\challenges\category102-lvl0\pa_2645-.swf" />
+    <Content Include="Content\challenges\category102-lvl0\pa_2647-.png" />
+    <Content Include="Content\challenges\category102-lvl0\pa_2650-.swf" />
+    <Content Include="Content\challenges\category102-lvl0\pa_2652-.png" />
+    <Content Include="Content\challenges\category102-lvl0\pes_2645-.swf" />
+    <Content Include="Content\challenges\category102-lvl0\pes_2647-.png" />
+    <Content Include="Content\challenges\category102-lvl0\pes_2650-.swf" />
+    <Content Include="Content\challenges\category102-lvl0\pes_2652-.png" />
+    <Content Include="Content\challenges\category102-lvl1\pa_2675-.swf" />
+    <Content Include="Content\challenges\category102-lvl1\pa_2677-.png" />
+    <Content Include="Content\challenges\category102-lvl1\pa_2680-.swf" />
+    <Content Include="Content\challenges\category102-lvl1\pa_2682-.png" />
+    <Content Include="Content\challenges\category102-lvl1\pes_2675-.swf" />
+    <Content Include="Content\challenges\category102-lvl1\pes_2677-.png" />
+    <Content Include="Content\challenges\category102-lvl1\pes_2680-.swf" />
+    <Content Include="Content\challenges\category102-lvl1\pes_2682-.png" />
+    <Content Include="Content\challenges\category102-lvl2\pa_2705-.swf" />
+    <Content Include="Content\challenges\category102-lvl2\pa_2707-.png" />
+    <Content Include="Content\challenges\category102-lvl2\pa_2710-.swf" />
+    <Content Include="Content\challenges\category102-lvl2\pa_2712-.png" />
+    <Content Include="Content\challenges\category102-lvl2\pes_2705-.swf" />
+    <Content Include="Content\challenges\category102-lvl2\pes_2707-.png" />
+    <Content Include="Content\challenges\category102-lvl2\pes_2710-.swf" />
+    <Content Include="Content\challenges\category102-lvl2\pes_2712-.png" />
+    <Content Include="Content\challenges\category102-lvl3\pa_2735-.swf" />
+    <Content Include="Content\challenges\category102-lvl3\pa_2737-.png" />
+    <Content Include="Content\challenges\category102-lvl3\pa_2740-.swf" />
+    <Content Include="Content\challenges\category102-lvl3\pa_2742-.png" />
+    <Content Include="Content\challenges\category102-lvl3\pes_2735-.swf" />
+    <Content Include="Content\challenges\category102-lvl3\pes_2737-.png" />
+    <Content Include="Content\challenges\category102-lvl3\pes_2740-.swf" />
+    <Content Include="Content\challenges\category102-lvl3\pes_2742-.png" />
+    <Content Include="Content\challenges\category102-lvl4\pa_2765-.swf" />
+    <Content Include="Content\challenges\category102-lvl4\pa_2767-.png" />
+    <Content Include="Content\challenges\category102-lvl4\pa_2770-.swf" />
+    <Content Include="Content\challenges\category102-lvl4\pa_2772-.png" />
+    <Content Include="Content\challenges\category102-lvl4\pes_2765-.swf" />
+    <Content Include="Content\challenges\category102-lvl4\pes_2767-.png" />
+    <Content Include="Content\challenges\category102-lvl4\pes_2770-.swf" />
+    <Content Include="Content\challenges\category102-lvl4\pes_2772-.png" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\jquery-labelauty.css" />
+    <Content Include="Content\css\lesson_start.css" />
+    <Content Include="Content\css\main-menu.css" />
+    <Content Include="Content\css\post_lesson.css" />
+    <Content Include="Content\css\profile.css" />
+    <Content Include="Content\css\question.css" />
+    <Content Include="Content\css\rocket.css" />
+    <Content Include="Content\css\Site.css" />
+    <Content Include="Content\css\style-responsive.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Head.jpg" />
+    <Content Include="Content\images\input-checked.png" />
+    <Content Include="Content\images\input-unchecked.png" />
+    <Content Include="Content\img\blog-bg.jpg" />
+    <Content Include="Content\img\checkbox-gray.png" />
+    <Content Include="Content\img\friends\fr-01.jpg" />
+    <Content Include="Content\img\friends\fr-02.jpg" />
+    <Content Include="Content\img\friends\fr-03.jpg" />
+    <Content Include="Content\img\friends\fr-04.jpg" />
+    <Content Include="Content\img\friends\fr-05.jpg" />
+    <Content Include="Content\img\friends\fr-06.jpg" />
+    <Content Include="Content\img\friends\fr-07.jpg" />
+    <Content Include="Content\img\friends\fr-08.jpg" />
+    <Content Include="Content\img\friends\fr-09.jpg" />
+    <Content Include="Content\img\friends\fr-10.jpg" />
+    <Content Include="Content\img\friends\fr-11.jpg" />
+    <Content Include="Content\img\instagram.jpg" />
+    <Content Include="Content\img\login-bg.jpg" />
+    <Content Include="Content\img\lorde.jpg" />
+    <Content Include="Content\img\mask.png" />
+    <Content Include="Content\img\ny.jpg" />
+    <Content Include="Content\img\portfolio\port01.jpg" />
+    <Content Include="Content\img\portfolio\port02.jpg" />
+    <Content Include="Content\img\portfolio\port03.jpg" />
+    <Content Include="Content\img\portfolio\port04.jpg" />
+    <Content Include="Content\img\portfolio\port05.jpg" />
+    <Content Include="Content\img\portfolio\port06.jpg" />
+    <Content Include="Content\img\product.jpg" />
+    <Content Include="Content\img\product.png" />
+    <Content Include="Content\img\profile-01.jpg" />
+    <Content Include="Content\img\profile-02.jpg" />
+    <Content Include="Content\img\radio-gray.png" />
+    <Content Include="Content\img\ui-danro.jpg" />
+    <Content Include="Content\img\ui-divya.jpg" />
+    <Content Include="Content\img\ui-sam.jpg" />
+    <Content Include="Content\img\ui-sherman.jpg" />
+    <Content Include="Content\img\ui-zac.jpg" />
+    <Content Include="Content\img\weather.jpg" />
+    <Content Include="Content\img\zoom.png" />
+    <Content Include="Content\jquery-labelauty.css" />
+    <Content Include="Content\lineicons\fonts\linecons.svg" />
+    <Content Include="Content\lineicons\index.html" />
+    <Content Include="Content\lineicons\lte-ie7.js" />
+    <Content Include="Content\lineicons\style.css" />
+    <Content Include="Content\main-menu.css" />
+    <Content Include="Content\pergunta.png" />
+    <Content Include="Content\qImages\apple.png" />
+    <Content Include="Content\qImages\pear.png" />
+    <Content Include="Content\rocket.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\style-responsive.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\unImages\FruitBody.png" />
+    <Content Include="Content\unImages\FruitHead.png" />
+    <Content Include="Content\unlockable\Body\425.png" />
+    <Content Include="Content\unlockable\Body\427.png" />
+    <Content Include="Content\unlockable\Body\430.png" />
+    <Content Include="Content\unlockable\Body\432.png" />
+    <Content Include="Content\unlockable\Body\435.png" />
+    <Content Include="Content\unlockable\Body\437.png" />
+    <Content Include="Content\unlockable\Head\424.jpg" />
+    <Content Include="Content\unlockable\Head\426.jpg" />
+    <Content Include="Content\unlockable\Head\428.jpg" />
+    <Content Include="Content\unlockable\Head\429.jpg" />
+    <Content Include="Content\unlockable\Head\431.jpg" />
+    <Content Include="Content\unlockable\Head\433.jpg" />
+    <Content Include="Content\unlockable\Head\434.jpg" />
+    <Content Include="Content\unlockable\Head\436.jpg" />
+    <Content Include="Content\unlockable\Head\438.jpg" />
+    <Content Include="Controllers\Content\a.mp4" />
+    <Content Include="Controllers\Content\bootstrap.css" />
+    <Content Include="Controllers\Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Controllers\Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\csv\example.csv" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\lineicons\fonts\linecons.eot" />
+    <Content Include="Content\lineicons\fonts\linecons.ttf" />
+    <Content Include="Content\lineicons\fonts\linecons.woff" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Review\Index.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Test\View.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\Test\Init.cshtml" />
+    <Content Include="Views\Home\_Category.cshtml" />
+    <Content Include="Views\Introduction\Test.cshtml" />
+    <Content Include="Views\Introduction\Global.cshtml" />
+    <Content Include="Views\Introduction\Lesson.cshtml" />
+    <Content Include="Views\Question\Global.cshtml" />
+    <Content Include="Views\Question\Lesson.cshtml" />
+    <Content Include="Views\Question\Test.cshtml" />
+    <Content Include="Views\Review\Global.cshtml" />
+    <Content Include="Views\Review\Lesson.cshtml" />
+    <Content Include="Views\Review\Test.cshtml" />
+    <Content Include="Views\Question\_QuestionMultipleChoice.cshtml" />
+    <Content Include="Views\Question\_QuestionFill.cshtml" />
+    <Content Include="Views\Test\Debug.cshtml" />
+    <Content Include="Views\Admin\ExpandDB.cshtml" />
+    <Content Include="Views\Admin\Sucess.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>65011</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:65011/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,18 @@
+﻿@using RocketEnglishv2.Models;
+@using RocketEnglishv2.Services;
+
+@model MultipleChoice
+
+        @foreach (string str in Utils.shuffle(@Model.All))
+        {
+            string check = Model.Answer.Equals(str) ? "checked" : "";
+
+            <input type="radio" name="answer" data-labelauty="@str" class="to-labelauty-icon" value="@str" @check />
+        }
+
+<script>
+
+    $(document).ready(function(){
+        $(".to-labelauty-icon").labelauty();
+    });
+</script>

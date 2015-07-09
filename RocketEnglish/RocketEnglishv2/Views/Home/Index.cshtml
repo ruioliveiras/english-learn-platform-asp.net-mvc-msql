@@ -1,0 +1,89 @@
+﻿@using RocketEnglishv2.Models;
+
+<div class="container" id="main-menu-container">
+    <div class="row main-menu-wrapper">
+        @foreach (List<CategoryLevel> l in ViewBag.Categories.Values)
+        { 
+             @Html.Partial("_Category", l)
+        }
+     </div>
+   <div class="row main-menu-wrapper" id="main-level-wrapper">
+        <div class="col-xs-3 main-category-label">
+            <p>Level</p>
+        </div>
+        <div class="col-xs-9">
+            <div class="main-category-wrapper">
+                <div class="main-category-content">
+                    @{
+                        float step = 20.0f;
+                        float currentStep = step;
+                    }
+                    
+                    <div class="checkpoint">0</div>
+                    @for (int lvl = 0; lvl < 5; lvl++)
+                    {
+                        <div class="checkpoint" style="left: @currentStep.ToString().Replace(",", ".")%">
+                            @Html.ActionLink("" + (lvl + 1), "Global", "Introduction", new { id = lvl + 1}, null) 
+                        </div>
+                        currentStep += step;
+                    }
+
+                </div>
+                @{
+                    var globalPercent = (ViewBag.GlobalLvl -1) * (step + 3);
+                }
+
+                <div class="progress" style="width: @globalPercent.ToString().Replace(",", ".")%">
+                    <div class="main-category-content" id="main-level-content">
+                        <div class="checkpoint">
+                            <a href="">0</a>
+                        </div>
+                        @{ currentStep = step; }
+                        @for (int lvl = 0; lvl < 5; lvl++)
+                        {
+                            <div class="checkpoint" style="left: @currentStep.ToString().Replace(",", ".")%">
+                                @Html.ActionLink("" + (lvl + 1), "Global", "Introduction", new { id = lvl + 1}, null)
+                            </div>
+                            currentStep += step;
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of progress bars -->
+
+    <script>
+        RocketEnglish.init.push(function () {
+            var registerUnlockable = function () {
+                var value = "something goes here";
+                var url = $('#answerForm').data('request-url');
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    dataType: 'json',
+                    data: JSON.stringify({ answer: answerValue }),
+                    success: function (data) {
+                        if (data.isCorrect === true) {
+                            alert("You are correct!");
+                            //heyy is correct
+                        } else if (data.isCorrect === false) {
+                            alert("Wrong answer...");
+                        } else {
+                            // do nothing..
+                        }
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                });
+            }
+
+
+
+            var inte = RocketEnglish.Avatar.interactionsAll;
+            RocketEnglish.Avatar.interactionsActual.joke = inte.joke;
+            RocketEnglish.Avatar.interactionsActual.translate = inte.translate;
+        });
+    </script>
+</div>

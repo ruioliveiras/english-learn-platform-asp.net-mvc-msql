@@ -1,0 +1,53 @@
+#post-lesson-wrapper {
+    margin-top: 50px;
+}
+
+#lesson-result {
+    width: 150px;
+    height: 150px;
+    font-size: 24px;
+}
+
+#lesson-result p.progressbar-text {
+    -webkit-transition: color 0.5s ease;
+    -moz-transition: color 0.5s ease;
+    -o-transition: color 0.5s ease;
+    transition: color 0.5s ease;
+
+}
+
+#post-lesson-summary {
+    margin-top: -25px;
+}
+
+#post-lesson-summary + div h2 {
+    margin-top: 170px;
+}
+
+.post-lesson-correct {
+    color: #6FD57F;
+}
+
+.post-lesson-wrong {
+    color: #D84315;
+}
+
+ul.post-lesson-questions {
+    list-style-type: none;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.post-lesson-questions li:before {
+    content: '✗';
+    font-size: 20px;
+    color: #D84315;
+}
+
+.post-lesson-question {
+    font-weight: bold;
+}
+
+.post-lesson-answer {
+    margin: 5px 0 10px 15px;
+}

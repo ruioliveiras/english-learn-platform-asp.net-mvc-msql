@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Botty test</title>
+    <!--[if IE]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
+  </head>
+  <body>
+    <button type="button" onclick="changeTorso('suit')">Suit Up!</button>
+    <button type="button" onclick="changeTorso('torso')">Suit Down...</button>
+    <button type="button" onclick="makeHappy()">Happy</button>
+    <button type="button" onclick="makeNeutral()">Neutral</button>
+    <button type="button" onclick="makeSad()">Sad</button>
+    <button type="button" onclick="talk()">Talk</button>
+    <button type="button" onclick="greet()">Greet</button>
+    <button type="button" onclick="changeHead('moustache')">Moustache</button>
+    <button type="button" onclick="changeHead('sunglasses')">Sunglasses</button>
+    <div id="canvasDiv"></div>
+    <script type="text/javascript" src="botty.js"></script>
+    <script type="text/javascript">
+    	 prepareCanvas(document.getElementById("canvasDiv"), 200, 250);
+    </script>
+  </body>
+</html>

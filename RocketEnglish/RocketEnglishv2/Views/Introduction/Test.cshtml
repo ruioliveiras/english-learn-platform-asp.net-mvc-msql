@@ -1,0 +1,33 @@
+﻿@using RocketEnglishv2.Models;
+@model CategoryTest
+
+<!-- falta saber na categoryTest  -->
+<div class="container">
+    <div class="row">
+        <div class="lesson-wrapper">
+            <h1 class="lesson-name">Category Test</h1>
+            <h3 class="lesson-category">@Model.CategoryLevel.Name</h3>
+
+            @{
+                var level = @Model.CategoryLevel.Level - 1;
+            }
+            <h4 class="lesson-theme">Level @level</h4>
+            <div class="lesson-description-container">
+                <center><h3>Complete this test to win:</h3></center>
+                <div class="test-prize" style="background-image: url(@Model.getPrizeImagePath().Replace("~",""))"></div>
+                <center><h3>@Model.CategoryLevel.getUnlockableName()</h3></center>
+                @Html.ActionLink("Start", "Test", "Question", new { @id = Model.CategoryLevel.Level,
+                                                                            @idCategory = Model.CategoryLevel.CategoryId,
+                                                                            @token = ViewBag.token },
+                                                                            new { @class = "lesson-start btn btn-success" })
+            </div>
+        </div>
+    </div>
+
+    <script>
+        RocketEnglish.init.push(function () {
+            var inte = RocketEnglish.Avatar.interactionsAll;
+            RocketEnglish.Avatar.interactionsActual.joke = inte.joke;
+        });
+    </script>
+</div>

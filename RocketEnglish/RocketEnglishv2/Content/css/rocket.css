@@ -1,0 +1,51 @@
+#canvasDiv {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
+
+#dialog-arrow {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 20px 30px 0 30px;
+    border-color: #f66061 transparent transparent transparent;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 260px;
+    margin-left: 75px;
+}
+
+#sidebar-botty {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+}
+
+#dialog-box {
+    text-align: center;
+    color: #eaeaea;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 270px;
+    margin-left: 15px;
+    max-height: 350px;
+    width: 85%;
+    overflow-y: scroll;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+    background-color: rgb(246,96,97);
+    padding: 10px;
+}
+
+#dialog-box::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+#dialog-box::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}

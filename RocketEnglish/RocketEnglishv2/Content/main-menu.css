@@ -1,0 +1,191 @@
+#main-menu-container {
+  margin-right: 20px;
+  width: 1530px;
+  margin-top: 50px;
+}
+
+.main-category-wrapper {
+  display: block;
+  position: relative;
+  width: 1200px;
+  height: 20px;
+  margin: 20px 0;
+}
+
+.main-category-content {
+  position: relative;
+  width: 1196px;
+  margin-left: 2px;
+  margin-top: 10px !important;
+  height: 20px;
+  background: #808080;
+}
+.progress {
+  height: 50px;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  margin-top: -20px;
+  background-color: #f2f2f2;
+  border: none;
+  box-shadow: none;
+}
+
+.progress .main-category-content {
+  background: #68dff0;
+  height: 20px;
+  margin-top: 12px;
+  margin-left: 2px;
+}
+
+#main-level-content {
+  background-color: #8BC34A;
+}
+
+#main-level-content .checkpoint {
+  background-color: #8BC34A;
+}
+
+.checkpoint {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  -webkit-border-radius: 22px;
+  border-radius: 22px;
+  background: #808080;
+  margin-left: -3px;
+}
+
+.progress .checkpoint {
+  background: #68dff0;
+  width: 44px;
+  height: 44px;
+  margin-left: -1px;
+}
+
+.checkpoint:not(:first-child):not(:last-child) {
+  margin-left: -18px;
+}
+
+.progress .checkpoint:not(:first-child):not(:last-child) {
+  margin-left: -16px;
+}
+
+.checkpoint:first-child {
+  padding-left: 1px;
+  width: 44px;
+  height: 44px;
+  margin-left: -2px !important;
+  left: 0 !important;
+
+}
+.checkpoint:last-child {
+  left: 100%;
+  margin-left: -31px;
+}
+.progress .checkpoint:first-child {
+  margin-left: -2px !important;
+}
+.progress .checkpoint:last-child {
+  margin-left: -29px;
+}
+
+.checkpoint a {
+  color: #eaeaea;
+}
+/* pure demonstrative */
+.checkpoint {
+  text-align: center;
+  font-size: 14px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  line-height: 44px;
+  padding-left: 2px;
+  color: #fff;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.progress .checkpoint {
+  line-height: 44px;
+  padding-left: 2px;
+  color: #000;
+}
+
+.main-menu-wrapper {
+  margin-top: 50px;
+}
+
+.main-category-label p {
+  font-weight: bold;
+  font-size: 24px;
+  padding-top: 10px;
+}
+
+.lesson {
+  position: absolute;
+  text-align: center;
+  height: 15px;
+  font-size: 32px;
+  line-height: 20px;
+  padding-top: 5px;
+}
+
+.lesson a {
+  color: #f2f2f2;
+}
+
+#main-level-wrapper {
+  margin-top: 75px;
+
+}
+
+/*
+.progress {
+  -webkit-animation: fill-empty 2s ease-in-out;
+  -moz-animation: fill-empty 2s ease-in-out;
+  -o-animation: fill-empty 2s ease-in-out;
+  -ms-animation: fill-empty 2s ease-in-out;
+  animation: fill-empty 2s ease-in-out;
+  animation-fill-mode:backwards;
+  -webkit-animation-fill-mode: backwards;
+
+}
+@-moz-keyframes fill-empty {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@-webkit-keyframes fill-empty {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@-o-keyframes fill-empty {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes fill-empty {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+*/

@@ -1,0 +1,83 @@
+﻿
+@using RocketEnglishv2.Models;
+@model List<CategoryLevel>
+
+
+@if (Model.Count > 0)
+{
+    <div class="row main-menu-wrapper">
+        <div class="col-xs-3 main-category-label">
+            <p>@Model[0].Name</p> <!-- category name -->
+        </div>
+        <div class="col-xs-9">
+            <div class="main-category-wrapper">
+                <div class="main-category-content">
+                    <div class="checkpoint"><a href="">0</a></div>
+                    @{
+                        var completeSteps = 0;
+                        var testCount = 0;
+
+                        float step = 6.66f;
+                        float lessonCount = step;
+                     }
+                    @foreach (CategoryLevel cl in Model)
+                    {
+                          var available = "disabled";
+                          if(cl.IsAvailable())
+                            { available = ""; }
+                          if(cl.IsDone())
+                            { completeSteps += 1; }
+
+
+                       foreach (LessonInfo l in cl.LessonInfos.Values)
+                       {
+                            <span class="lesson" style="left: @lessonCount.ToString().Replace(",", ".")%">
+                                <!--<a href="">&bull;</a>-->
+                                @if(l.IsAvailable())
+                                { @Html.ActionLink("•", "Lesson", "Introduction", new { id = cl.Level, idLesson = l.Id, idCategory = cl.CategoryId }, null);
+                                }
+                                @if (l.IsDone())
+                                { completeSteps += 1;  }
+                            </span>
+                            lessonCount+= step;
+                        }
+                        <div class="checkpoint" style="left: @lessonCount.ToString().Replace(",", ".")%">
+                            @{ testCount++; }
+                            @if(cl.IsAvailable())
+                            { @Html.ActionLink(cl.Level + "", "Test", "Introduction", new { id = cl.Level, idCategory = cl.CategoryId }, null); }
+                            else
+                            { @Html.ActionLink(cl.Level + "", "Test", "Introduction", new { id = cl.Level, idCategory = cl.CategoryId }, new { @class="disabled"}); }
+                        </div>
+                        lessonCount+= step;
+                    }
+                    @{
+                        var percent = completeSteps * (step + 1);
+                        lessonCount = step;
+                    }
+                    <div class="progress" style="width: @percent.ToString().Replace(",",".")%">
+                    <!--<div class="progress" style="width: 50%">-->
+
+                    <div class="main-category-content">
+                    <div class="checkpoint"><a href="">0</a></div>
+                        @foreach (CategoryLevel cl in Model)
+                        {
+                            foreach (LessonInfo l in cl.LessonInfos.Values)
+                            {
+                                <span class="lesson" style="left: @lessonCount.ToString().Replace(",", ".")%">
+                                    <!--<a href="">&bull;</a>-->
+                                    @Html.ActionLink("•", "Lesson", "Introduction", new { id = cl.Level, idLesson = l.Id, idCategory = cl.CategoryId }, null)
+                                </span>
+                                    lessonCount += step;
+                            }
+                            <div class="checkpoint" style="left: @lessonCount.ToString().Replace(",", ".")%">
+                                @Html.ActionLink(cl.Level + "", "Test", "Introduction", new { id = cl.Level, idCategory = cl.CategoryId }, null)
+                            </div>
+                                lessonCount += step;
+                        }
+                    </div>
+                   </div>
+                </div>
+           </div>
+        </div>
+    </div>
+}

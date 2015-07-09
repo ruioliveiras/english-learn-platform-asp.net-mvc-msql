@@ -1,0 +1,110 @@
+﻿@using RocketEnglishv2.Models;
+@model RocketEnglishv2.Models.User
+
+<div class="container">
+    <div id="profile-wrapper" class="row">
+        <div class="col-xs-1" id="profile-level">@Model.GlobalLvl</div>
+        <div class="col-xs-11" id="profile-stats">
+            <h1>Miguel Barroso</h1>
+            <h2>Statistics</h2>
+            <ul>
+                <li><span class="profile-stat">Unlockables:</span> 2</li>
+                <li><span class="profile-stat">Perfect Tests:</span> @Model.getPerfectTestNumber()</li>
+                <li><span class="profile-stat">Daily Login Streak:</span> @Model.CurrentDailyLogin days</li>
+                <li><span class="profile-stat">Max Daily Login Streak:</span> 2 days</li>
+            </ul>
+        </div>
+    </div>
+    <form id="unlockables-form" data-request-url="@Url.Action("Unlockble")">
+        <div id="profile-head-wrapper" class="row">
+            <h1>Head</h1>
+            @{
+                var head = Model.GetHead();
+                var heads = Model.GetAvailableHeads();
+            }
+            @foreach (Unlockable a in heads)
+            {
+                var isChecked = (a.Name == head.Name) ? "checked" : "";
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="col-xs-12">
+                        <img src="@Url.Content(a.Image)" />
+                    </div>
+                    <div class="col-xs-12">
+                        <input type="radio" class="to-labelauty-icon" name="unlock-head" value="@a.Name" @isChecked />
+                    </div>
+                </div>
+            }
+        </div>
+        <div id="profile-body-wrapper" class="row">
+            <h1>Body</h1>
+            @{
+                var body = Model.GetBody();
+                var bodies = Model.GetAvailableBodys();
+            }
+            @foreach (Unlockable a in bodies)
+            {
+                var isChecked = (a.Name == body.Name) ? "checked" : "";
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="col-xs-12">
+                        <img src="@Url.Content(a.Image)" />
+                    </div>
+                    <div class="col-xs-12">
+                        <input type="radio" class="to-labelauty-icon" name="unlock-body" value="@a.Name" @isChecked />
+                    </div>
+                </div>
+            }
+            @if (bodies.Count == 0)
+            {
+                //<center><h3>No body unlockables available.</h3></center>
+            }
+         
+        </div>
+        <button type="button" class="btn btn-success" id="unlocklable-save">Save</button>
+    </form>
+
+    <script>
+
+
+
+        RocketEnglish.init.push(function () {
+            var inte = RocketEnglish.Avatar.interactionsAll;
+            RocketEnglish.Avatar.interactionsActual.joke = inte.joke;
+            RocketEnglish.Avatar.interactionsActual.translate = inte.translate;
+            $("input[name=unlock-body]", '#unlockables-form').change(function () {
+                changeTorso($(this).val());
+            });
+            $("input[name=unlock-head]", '#unlockables-form').change(function () {
+                changeHead($(this).val());
+            });
+          
+            var registerUnlockable = function (name, type) {
+                makeHappy();
+                RocketEnglish.SimpleInteraction('I love my new clothes');
+                greet();
+                var url = $('#unlockables-form').data('request-url');
+                    $.ajax({
+                        type: 'POST',
+                        url: url,
+                        dataType: 'json',
+                        data: JSON.stringify({ name: name, type: type }),
+                        success: function (data) {
+
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+                    });
+            };
+            
+
+            $('#unlocklable-save').click(function () {
+                var body = $('input[name=unlock-body]:checked', '#unlockables-form').val();
+                var head = $('input[name=unlock-head]:checked', '#unlockables-form').val();
+                registerUnlockable(body, 'body');
+                registerUnlockable(head, 'head');
+
+            });
+            });
+    </script>
+
+</div>

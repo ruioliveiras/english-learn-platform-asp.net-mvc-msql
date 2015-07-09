@@ -1,0 +1,235 @@
+﻿@{
+    bool hasUser = ViewBag.User != null;
+    RocketEnglishv2.Models.User u = ViewBag.User;
+    RocketEnglishv2.Models.Unlockable head = (hasUser) ? u.GetHead() : null;
+    RocketEnglishv2.Models.Unlockable body = (hasUser) ? u.GetBody() : null;
+    
+    var joke = (hasUser) ? u.UnlockableJokes() : new string[0];
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Teaching kids English, the right way.">
+    <meta name="author" content="LI4 14/15 Grupo 17">
+    <meta name="keyword" content="Rocket, English">
+    <title>Rocket English</title>
+    <script>
+    var RocketEnglish = {};
+    RocketEnglish.init = [];
+    RocketEnglish.Avatar = { interactionsActual: {}, interactionsAll: {} };
+    RocketEnglish.Util = {};
+
+    RocketEnglish.Avatar.interactionsAll
+        .tip = {
+            id: 'avatar-interaction-tip',
+            text: 'Pedir Dica',
+            tip: '',// should be setted by the view that are loding,
+            fun: function () {
+                RocketEnglish.SimpleInteraction(this.tip);
+            }
+        };
+    RocketEnglish.Avatar.interactionsAll
+        .translate = {
+            id: 'avatar-interaction-translate',
+            text: 'Translate word',
+            fun: function () {
+                makeNeutral();
+                var word = prompt('Please enter the word', '');
+                talk();
+                var url = $('#avatar-interaction-translate').data('request-url');
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    dataType: 'json',
+                    data: JSON.stringify({ word: word }),
+                    success: function (data) {
+                        if (data.word != "" && data.word != undefined) {
+                            RocketEnglish.SimpleInteraction(data.word);
+                        }
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                });
+            }
+        };
+    RocketEnglish.Avatar.interactionsAll
+        .joke = {
+            id: 'avatar-interaction-joke',
+            text: 'Say joke',
+            //joke: '', // should be setted by the view that are loding,
+            lastRandom: -1,
+            fun: function () {
+                makeHappy();
+                talk();
+                var arrayText = $('#avatar-interaction-joke').data('joke');
+                var r = RocketEnglish.Util.Random(0, arrayText.length -1);
+                var ttl = 5;
+                while (this.lastRandom == r && ttl > 0) {
+                    r = RocketEnglish.Util.Random(0, arrayText.length - 1);
+                    ttl--;
+                }
+                this.lastRandom = r;
+                RocketEnglish.SimpleInteraction(arrayText[r]);
+            }
+        };
+
+
+
+    RocketEnglish.Init = function () {
+        var array = RocketEnglish.init, i;
+        for (i = 0; i < array.length; i++) {
+            var callback = (array[i]);
+            callback();
+        }
+    };
+    RocketEnglish.LoadInteractions = function () {
+        //$('#avatar-interactions').empty();
+       
+        array = RocketEnglish.Avatar.interactionsActual;
+        all = RocketEnglish.Avatar.interactionsAll;
+
+        $.each(all, function (key, value) {
+            if (array[key] != undefined) {
+                $('#' + all[key].id).click(all[key].fun.bind(all[key]));
+            } else {
+                $('#' + all[key].id).remove();
+            }
+        });
+    };
+    RocketEnglish.SimpleInteraction = function (text) {
+        $('#dialog-arrow').removeClass("hide");
+        $('#dialog-box').removeClass("hide");
+        $('#dialog-box').empty();
+        $('#dialog-box').text(String(text));
+    }
+    RocketEnglish.Util.Random = function (min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+
+</script>
+    <link rel="stylesheet" href="~/Content/css/font-awesome.css" />
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/css/style.css" />
+    <link rel="stylesheet" href="~/Content/css/style-responsive.css" />
+    <link rel="stylesheet" href="~/Content/css/main-menu.css" />
+    <link rel="stylesheet" href="~/Content/css/post_lesson.css" />
+    <link rel="stylesheet" href="~/Content/css/profile.css" />
+    <link rel="stylesheet" href="~/Content/css/question.css" />
+    <link rel="stylesheet" href="~/Content/css/lesson_start.css" />
+    <link rel="stylesheet" href="~/Content/css/rocket.css" />
+    <link rel="stylesheet" href="~/Content/css/jquery-labelauty.css" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    <script>
+    $(function () {
+        RocketEnglish.Init();
+        RocketEnglish.LoadInteractions();
+    });
+    </script>
+
+
+
+</head>
+<body>
+    <section id="container">
+        <!--header start-->
+        <header class="header black-bg">
+            <div class="sidebar-toggle-box">
+                <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+            </div>
+            <!--logo start-->
+            <a href="/" class="logo"><b>Rocket English</b></a>
+            <!--logo end-->
+            <div class="top-menu">
+                <ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="login.html">Logout</a></li>
+                </ul>
+            </div>
+        </header>
+        <!--header end-->
+        <!-- **********************************************************************************************************************************************************
+        MAIN SIDEBAR MENU
+        *********************************************************************************************************************************************************** -->
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <li class="mt">
+                        <a href="/Profile/Index">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Take me to my Profile</span>
+                        </a>
+                    </li>
+                    <li id="avatar-interaction-tip" class="mt">
+                        <a>
+                            <i class="fa fa-dashboard"></i>
+                            <span>Give me a Tip</span>
+                        </a>
+                    </li>
+                    <li id="avatar-interaction-translate" data-request-url="@Url.Action("PtEn", "Translate")" class="mt">
+                        <a>
+                            <i class="fa fa-dashboard"></i>
+                            <span>Translate this word</span>
+                        </a>
+                    </li>
+                    <li id="avatar-interaction-joke" class="mt" data-joke="@Json.Encode(joke)">
+                        <a>
+                            <i class="fa fa-dashboard"></i>
+                            <span>Tell me a joke</span>
+                        </a>
+                    </li>
+
+                    <div id="dialog-box" class="hide">
+                        Yay! You did it!
+                    </div>
+                    <div id="dialog-arrow" class="hide"></div>
+                    <div id="canvasDiv" ></div>
+                    <script type="text/javascript" src="~/Content/avatar/botty.js"></script>
+                    <script type="text/javascript">
+                        prepareCanvas(document.getElementById("canvasDiv"), 200, 250);
+                        makeNeutral();
+
+                       
+                        RocketEnglish.init.push(function () {
+                          
+                            @if (hasUser)
+                            {
+                                <text>
+                                changeTorso('@body.Name');
+                                changeHead('@head.Name');
+                                </text>
+                            }
+                        });
+                    </script>
+
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+        <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                @RenderBody()
+            </section>
+         </section>
+    </section>
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/jquery.nicescroll.js"></script>
+    <script src="~/Scripts/jquery-labelauty.js"></script>
+    <script src="~/Scripts/common-scripts.js"></script>
+
+
+</body>
+</html>

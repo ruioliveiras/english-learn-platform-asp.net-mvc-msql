@@ -1,0 +1,26 @@
+﻿@using RocketEnglishv2.Models;
+@model Lesson
+
+<!-- Falta saber a categoria -->
+
+<div class="container">
+    <div class="row">
+        <div class="lesson-wrapper">
+            <h1 class="lesson-name">@Model.Name</h1>
+            <div class="lesson-description-container">
+                <p class="lesson-description">@Model.Description</p>
+                <!--                              <div class="test-prize"></div>-->
+                @Html.ActionLink("Start", "Lesson", "Question", new { @id = Model.Id, @token = ViewBag.token }, new { @class="lesson-start btn btn-success" })
+                <!-- <a href=""><button class="lesson-start btn btn-success">Start</button></a>-->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        RocketEnglish.init.push(function () {
+            var inte = RocketEnglish.Avatar.interactionsAll;
+            RocketEnglish.Avatar.interactionsActual.joke = inte.joke;
+            RocketEnglish.Avatar.interactionsActual.translate = inte.translate;
+        });
+    </script>
+</div>

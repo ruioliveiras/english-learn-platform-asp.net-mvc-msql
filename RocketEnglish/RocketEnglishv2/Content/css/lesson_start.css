@@ -1,0 +1,35 @@
+.lesson-wrapper {
+    margin-top: 10%;
+    text-align: center;
+}
+
+.lesson-description-container {
+    width: 70%;
+    margin: 20px auto;
+}
+
+.lesson-theme {
+    text-decoration: underline;
+}
+
+.lesson-start {
+    margin-top: 10px;
+    width: 90px;
+    height: 75px:
+}
+
+.test-prize {
+    background-attachment: scroll;
+    background-image: url(../img/prizes.gif);
+    background-position: center center;
+    background-repeat: none;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    margin: 0 auto;
+}
+
